@@ -1,1 +1,1 @@
-#KAKAO MAP API 예제
+# kakaoMap API
