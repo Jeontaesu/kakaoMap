@@ -1,8 +1,20 @@
-var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-    mapOption = { 
-        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
-    };
+const mapContainer = document.querySelector('#map'); // 지도를 표시할 div 
+const mapOption = { center: new kakao.maps.LatLng(37.51934317566885, 127.05708823178604), level: 2};
 
-// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-var map = new kakao.maps.Map(mapContainer, mapOption);
+//map instance
+const map = new kakao.maps.Map(mapContainer, mapOption);
+
+//marker instance
+const marker = new kakao.maps.Marker({ position: mapOption.center });
+
+//type controller instance
+const mapTypeControl = new kakao.maps.MapTypeControl();
+
+//zoom controller instance
+const zoomControl = new kakao.maps.ZoomControl();
+
+//add marker layer on map layer
+marker.setMap(map);
+
+//add controller layer on map layer
+[mapTypeControl, zoomControl].forEach(el => map.addControl(el));
